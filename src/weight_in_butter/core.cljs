@@ -19,13 +19,16 @@
       (.getElementById js/document "results"))
     content))
 
-(defn weight []
-  (int (.-value
-    (.getElementById js/document "weight"))))
-
-(defn unit []
+(defn get-input-value [id]
   (.-value
-    (.getElementById js/document "units")))
+    (.getElementById js/document id)))
+
+(defn weight []
+  (int
+    (get-input-value "weight")))
+
+(defn unit [] 
+  (get-input-value "units"))
 
 (defn calculate []
   (output
