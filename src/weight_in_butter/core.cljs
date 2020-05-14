@@ -1,13 +1,17 @@
 (ns weight-in-butter.core)
 
+(def oz-in-butter 4)
+(def oz-in-lb 16)
+(def oz-in-kg 35.26)
+
 (defn to-oz [weight unit]
   (* weight
     (if (= unit "lbs")
-      16
-      35.26)))
+      oz-in-lb
+      oz-in-kg)))
 
 (defn oz-to-butter [ounces]
-  (/ ounces 4))
+  (/ ounces oz-in-butter))
 
 (defn to-butter [weight unit]
   (oz-to-butter
