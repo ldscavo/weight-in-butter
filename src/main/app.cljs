@@ -1,4 +1,4 @@
-(ns butter.app)
+(ns app)
 
 (def oz-in-butter 4)
 (def oz-in-lb 16)
