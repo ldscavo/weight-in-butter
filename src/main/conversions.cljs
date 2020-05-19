@@ -3,6 +3,7 @@
 (def oz-in-butter 4)
 (def oz-in-lb 16)
 (def oz-in-kg 35.26)
+(def g-in-oz 28.35)
 
 (defn to-oz [weight unit]
   (* weight
@@ -10,9 +11,16 @@
        oz-in-lb
        oz-in-kg)))
 
+(defn oz-to-g [ounces]
+  (* ounces g-in-oz))
+
 (defn oz-to-butter [ounces]
   (/ ounces oz-in-butter))
 
-(defn to-butter [weight unit]
-  (oz-to-butter
-   (to-oz weight unit)))
+(defn to-g [weight units]
+  (->> (to-oz weight units)
+       (oz-to-g)))
+
+(defn to-butter [weight units]
+  (->> (to-oz weight units)
+       (oz-to-butter)))
