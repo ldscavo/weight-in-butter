@@ -5,11 +5,18 @@
 (def oz-in-kg 35.26)
 (def g-in-oz 28.35)
 
+(defn validate [n]
+  (if (< n 0) 0 n))
+
+(defn get-operand [unit]
+  (if (= unit "lbs")
+    oz-in-lb
+    oz-in-kg))
+
 (defn to-oz [weight unit]
-  (* weight
-     (if (= unit "lbs")
-       oz-in-lb
-       oz-in-kg)))
+  (->> (get-operand unit)
+       (* weight)
+       (validate)))
 
 (defn oz-to-g [ounces]
   (* ounces g-in-oz))

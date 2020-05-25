@@ -12,5 +12,9 @@
  :builds
  {:main
   {:target :browser
-    :modules {:main {:init-fn app/init}}
-    }}}
+   :modules {:main {:init-fn app/init}}}
+  :test
+  {:target    :node-test
+   :output-to "out/node-tests.js"
+   :ns-regexp "-spec$"
+   :autorun   true}}}
