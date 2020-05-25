@@ -16,3 +16,9 @@
   (is (= (conv/to-oz 5 "lbs") 80))
   (is (= (conv/to-oz 0 "lbs") 0))
   (is (= (conv/to-oz -1 "lbs") 0)))
+
+(deftest oz-to-g-calculates-correctly
+  (is (= (conv/oz-to-g 1) 28.35))
+  (is (= (conv/oz-to-g 5) 141.75))
+  (is (= (conv/oz-to-g 0) 0))
+  (is (= (conv/oz-to-g -1) 0)))

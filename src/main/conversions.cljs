@@ -19,7 +19,9 @@
        (validate)))
 
 (defn oz-to-g [ounces]
-  (* ounces g-in-oz))
+  (->> g-in-oz
+       (* ounces)
+       (validate)))
 
 (defn oz-to-butter [ounces]
   (/ ounces oz-in-butter))
