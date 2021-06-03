@@ -2,24 +2,24 @@
   (:require [conversions :as conv]))
 
 (defn output [id content]
-  (set!
-   (.-innerHTML
-    (.getElementById js/document id))
-   content))
+  (-> js/document
+      (.getElementById id)
+      (.-innerHTML)
+      (set! content)))
 
 (defn get-input-value [id]
-  (.-value
-   (.getElementById js/document id)))
+  (-> js/document
+      (.getElementById id)
+      (.-value)))
 
 (defn get-weight []
-  (int
-   (get-input-value "weight")))
+  (-> (get-input-value "weight") int))
 
 (defn get-units []
   (get-input-value "units"))
 
 (defn get-grams []
-  (int (conv/to-g (get-weight) (get-units))))
+  (-> (conv/to-g (get-weight) (get-units)) int))
 
 (defn get-butter []
   (conv/to-butter (get-weight) (get-units)))
@@ -34,14 +34,13 @@
     (output "results"
       (str "This weighs as much as " butter " sticks of butter!"))))
 
+(defn bind-element [id event f]
+  (-> js/document
+      (.getElementById id)
+      (.addEventListener event f)))
+
 (defn bind-gram-display []
-  (.addEventListener
-   (.getElementById js/document "weight")
-   "keyup"
-   display-grams))
+  (bind-element "weight" "keyup" display-grams))
 
 (defn bind-calculation []
-  (.addEventListener
-   (.getElementById js/document "calculate")
-   "click"
-   calculate))
+  (bind-element "calculate" "click" calculate))
