@@ -27,7 +27,7 @@ body {
 .c-main__header {
     margin-top: 0;
     margin-bottom: 25px;
-    font-size: 7rem;
+    font-size: 6rem;
     text-align: center;
 }
 
@@ -35,6 +35,8 @@ body {
     font-size: 2rem;
     font-family: 'Tomatoes';
     text-transform: none;
+    display: block;
+    margin-bottom: -10px;
 }
 
 .c-form {
