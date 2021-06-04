@@ -55,8 +55,8 @@
   (let [butter (get-butter)]
     (set-result-field "results"
       (str "This weighs as much as " butter " sticks of butter"))
-    (if (> butter 2)
-      (show-warning)())))
+    (when (> butter 1)
+      (show-warning))))
 
 (defn bind-element [id event f]
   (-> js/document
