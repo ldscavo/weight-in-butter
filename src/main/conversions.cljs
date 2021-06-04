@@ -35,7 +35,8 @@
 
 (defn to-butter [weight units]
   (->> (to-oz weight units)
-       (oz-to-butter)))
+       (oz-to-butter)
+       (int)))
 
 (comment
   (to-g 50 "kg"))
