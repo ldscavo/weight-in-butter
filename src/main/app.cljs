@@ -3,4 +3,5 @@
 
 (defn init []
   (ui/bind-calculation)
-  (ui/bind-gram-display))
+  (ui/bind-gram-display)
+  (ui/display-grams))
