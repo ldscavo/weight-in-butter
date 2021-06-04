@@ -12,25 +12,18 @@
       (.getElementById id)
       (.-value)))
 
-(defn show [id]
+(defn show-or-hide [id display]
   (-> js/document
       (.getElementById id)
       (.-style)
       (.-display)
-      (set! "block")))
-
-(defn hide [id]
-  (-> js/document
-      (.getElementById id)
-      (.-style)
-      (.-display)
-      (set! "none")))
+      (set! (if (= display :show) "block" "none"))))
 
 (defn show-warning []  
-  (js/setTimeout #(show "warning") 1200))
+  (js/setTimeout #(show-or-hide "warning" :show) 1200))
 
 (defn hide-warning []
-  (hide "warning"))
+  (show-or-hide "warning" :hide))
 
 (defn get-weight []
   (-> (get-input-value "weight") int))
