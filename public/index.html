@@ -11,14 +11,14 @@
 
 <body>
   <section class="c-main" id="main-body">
-    <h1 class="c-main__header">Weight In Butter</h1>
+    <h1 class="c-main__header">
+      <div class="cursive">Weight In</div>
+      Butter    
+    </h1>
     <form class="c-form" id="main-form">
       <div class="c-form__inputWrapper">
-        <label class="c-form__label" for="weight">Weight:</label>
-        <input class="c-form__input" type="number" min="0" id="weight" name="weight" />
-      </div>
-      <div class="c-form__inputWrapper">
-        <label class="c-form__label" for="units">Units:</label>
+        <label class="c-form__label" for="weight">Net wt:</label>
+        <input class="c-form__input" type="number" min="0" step="0.01" id="weight" name="weight" />
         <select class="c-form__input" id="units" name="units">
           <option value="lbs">lbs</option>
           <option value="kg">kg</option>
@@ -29,8 +29,9 @@
         <input class="c-form__button" type="button" value="Calculate" id="calculate" />
       </div>
     </form>
-    <div class="c-result" id="results">
-    </div>
+    <div class="c-result" id="results"></div>
+    <div id="warning">Warning! Please do not eat this much butter in one sitting!</div>
+    <div id="disclaimer">This site not labeled for individual resale</div>
   </section>
   <script src="js/main.js" type="text/javascript"></script>
 </body>

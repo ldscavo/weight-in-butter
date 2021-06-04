@@ -1,12 +1,39 @@
+@font-face {
+    font-family: 'Tomatoes';
+    src: url('../static/Tomatoes.ttf');
+}
+
+@font-face {
+    font-family: 'AmericanPurpose';
+    src: url('../static/AmericanPurpose.ttf');
+}
+
+body {
+    background-color: #fff300;
+}
+
 .c-main {
     display: flex;
     flex: 1 1 auto;
     flex-flow: column nowrap;
     align-items: center;
+
+    font-family: 'AmericanPurpose';
+    text-transform: uppercase;
+    font-size: 1.5rem;
+
+    color: #b30000;
 }
 .c-main__header {
-    font-size: 8rem;
+    margin-top: 0;
+    font-size: 7rem;
     text-align: center;
+}
+
+.c-main__header .cursive {
+    font-size: 2rem;
+    font-family: 'Tomatoes';
+    text-transform: none;
 }
 
 .c-form {
@@ -15,7 +42,7 @@
 }
 .c-form__inputWrapper {
     display: flex;
-    flex-flow: column nowrap;
+    /* flex-flow: column nowrap; */
     justify-content: center;
     padding: 1rem;
 }
@@ -23,25 +50,31 @@
     grid-column: 1/-1;
 }
 .c-form__label {
-    padding-bottom: .25rem;
-    color: #696969;
+    padding-bottom: 1rem;
+    /* color: #696969; */
 }
 .c-form__input {
-    padding: .25rem;
+    padding: 1rem;
+    font-family: 'AmericanPurpose';
+    text-transform: uppercase;
 }
 .c-form__button {
     display: inline-block;
     padding: 15px 25px;
+
     font-size: 24px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-    outline: none;
-    color: rgb(46, 46, 46);
+    outline: 5px solid #b30000 ;
+    color: #b30000;
     background-color: #fff300;
     border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
+    /* border-radius: 15px; */
+    /* box-shadow: 0 9px #999; */
+
+    font-family: 'AmericanPurpose';
+    text-transform: uppercase;
 }
 .c-form__button:hover {
     background-color: #dfd413;
@@ -55,6 +88,15 @@
 .c-result {
     font-size: 3rem;
     text-align: center;
+}
+
+#warning {
+    display: none;
+}
+
+#disclaimer {
+    position: absolute;
+    bottom: 0;
 }
 
 @media (max-width: 450px) {
