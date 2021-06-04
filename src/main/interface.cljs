@@ -54,7 +54,7 @@
   (hide-warning)
   (let [butter (get-butter)]
     (set-result-field "results"
-      (str "This weighs as much as " butter " sticks of butter!"))
+      (str "This weighs as much as " butter " sticks of butter"))
     (if (> butter 2)
       (show-warning)())))
 
