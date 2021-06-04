@@ -52,7 +52,6 @@ body {
 }
 .c-form__label {
     padding-bottom: 1rem;
-    /* color: #696969; */
 }
 .c-form__input {
     padding: 1rem;
@@ -71,8 +70,6 @@ body {
     color: #b30000;
     background-color: #fff300;
     border: none;
-    /* border-radius: 15px; */
-    /* box-shadow: 0 9px #999; */
 
     font-family: 'AmericanPurpose';
     text-transform: uppercase;
