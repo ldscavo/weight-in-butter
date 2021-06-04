@@ -87,11 +87,12 @@ body {
 }
 
 .c-result {
-    font-size: 3rem;
+    font-size: 2.75rem;
     text-align: center;
 }
 
 #warning {
+    margin-top: 35px;
     display: none;
 }
 
