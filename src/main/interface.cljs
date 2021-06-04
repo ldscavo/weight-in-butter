@@ -1,7 +1,7 @@
 (ns interface
   (:require [conversions :as conv]))
 
-(defn output [id content]
+(defn set-result-field [id content]
   (-> js/document
       (.getElementById id)
       (.-innerHTML)
@@ -11,6 +11,26 @@
   (-> js/document
       (.getElementById id)
       (.-value)))
+
+(defn show [id]
+  (-> js/document
+      (.getElementById id)
+      (.-style)
+      (.-display)
+      (set! "block")))
+
+(defn hide [id]
+  (-> js/document
+      (.getElementById id)
+      (.-style)
+      (.-display)
+      (set! "none")))
+
+(defn show-warning []  
+  (js/setTimeout #(show "warning") 1200))
+
+(defn hide-warning []
+  (hide "warning"))
 
 (defn get-weight []
   (-> (get-input-value "weight") int))
@@ -26,13 +46,17 @@
 
 (defn display-grams []
   (let [grams (get-grams)]
-    (output "grams"
-      (str "(" grams " grams)"))))
+    (if (> grams 0)
+      (set-result-field "grams" (str grams "g"))
+      (set-result-field "grams" ""))))
 
 (defn calculate []
+  (hide-warning)
   (let [butter (get-butter)]
-    (output "results"
-      (str "This weighs as much as " butter " sticks of butter!"))))
+    (set-result-field "results"
+      (str "This weighs as much as " butter " sticks of butter!"))
+    (if (> butter 2)
+      (show-warning)())))
 
 (defn bind-element [id event f]
   (-> js/document
@@ -40,7 +64,8 @@
       (.addEventListener event f)))
 
 (defn bind-gram-display []
-  (bind-element "weight" "keyup" display-grams))
+  (bind-element "weight" "keyup" display-grams)
+  (bind-element "units" "change" display-grams))
 
 (defn bind-calculation []
   (bind-element "calculate" "click" calculate))
