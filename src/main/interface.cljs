@@ -45,7 +45,7 @@
   (conv/to-butter (get-weight) (get-units)))
 
 (defn display-grams []
-  (let [grams (get-grams)]
+  #_(let [grams (get-grams)]
     (if (> grams 0)
       (set-result-field "grams" (str grams "g"))
       (set-result-field "grams" ""))))
