@@ -29,7 +29,16 @@
         <input class="c-form__button" type="button" value="Calculate" id="calculate" />
       </div>
     </form>
-    <div class="c-result" id="results"></div>
+    <table id="weights">
+      <tr>
+        <td colspan="3"><span id="weight-display">0.25</span> <span id="units-display">lbs</span> in butter</td>
+      </tr>
+      <tr class="data-row">
+        <td>Sticks<div id="butter-sticks">1</div></td>
+        <td>Cups<div id="cups">0.5</div></td>
+        <td>TBSP<div id="tbsp">16</div></td>
+      </tr>    
+    </table>
     <div id="warning">Warning: Please do not eat this much butter in one sitting</div>
     <div id="disclaimer">This site not labeled for individual resale</div>
   </section>

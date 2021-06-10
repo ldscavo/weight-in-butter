@@ -3,9 +3,8 @@
 (def oz-in-butter 4)
 (def oz-in-lb 16)
 (def oz-in-kg 35.26)
-(def g-in-oz 28.35)
-(def g-in-lb 453.592)
-(def g-in-kg 1000)
+(def cups-in-butter 0.5)
+(def tbsp-in-butter 16)
 
 (defn validate [n]
   (if (< n 0) 0 n))
@@ -20,23 +19,23 @@
        (* weight)
        (validate)))
 
-(defn oz-to-g [ounces]
-  (->> g-in-oz
-       (* ounces)
-       (validate)))
-
 (defn oz-to-butter [ounces]
   (/ ounces oz-in-butter))
 
-(defn to-g [weight units]
-  (if (= units "lbs")
-    (* weight g-in-lb)
-    (* weight g-in-kg)))
-
 (defn to-butter [weight units]
   (->> (to-oz weight units)
-       (oz-to-butter)
-       (int)))
+       (oz-to-butter)))
+
+(defn butter-to-cups [butter]
+  (* butter cups-in-butter))
+
+(defn butter-to-tbsp [butter]
+  (* butter tbsp-in-butter))
 
 (comment
-  (to-g 50 "kg"))
+  (get-operand "lbs")
+  (get-operand "kg")
+  (to-butter 0.35 "lbs")
+  (butter-to-cups 1)
+  (butter-to-cups 0.69)
+  (butter-to-tbsp 1))
