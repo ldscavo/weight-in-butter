@@ -26,7 +26,7 @@
   (show-or-hide "warning" :hide))
 
 (defn get-weight []
-  (-> (get-input-value "weight") int))
+  (-> (get-input-value "weight") float))
 
 (defn get-units []
   (get-input-value "units"))
