@@ -20,7 +20,7 @@
       (set! (if (= display :show) "block" "none"))))
 
 (defn show-warning []  
-  (js/setTimeout #(show-or-hide "warning" :show) 1200))
+  (js/setTimeout #(show-or-hide "warning" :show) 2000))
 
 (defn hide-warning []
   (show-or-hide "warning" :hide))
