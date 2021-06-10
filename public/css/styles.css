@@ -8,6 +8,18 @@
   src: url('../static/AmericanPurpose.ttf');
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 body {
   background-color: #fff300;
 }
@@ -42,23 +54,30 @@ body {
 .c-form {
   display: grid;
   grid-template-columns: 1fr auto;
+  width: 380px;
 }
 .c-form__inputWrapper {
+  /* border: 1px solid black; */
   display: flex;
   /* flex-flow: column nowrap; */
-  justify-content: center;
+  justify-content: space-between;
   padding: 1rem;
 }
 .c-form__inputWrapper--submit {
   grid-column: 1/-1;
+  justify-content: center;
 }
 .c-form__label {
   padding-bottom: 1rem;
 }
 .c-form__input {
-  padding: 1rem;
+  padding: .75rem;
+  font-size: 1rem;
   font-family: 'AmericanPurpose';
   text-transform: uppercase;
+}
+.c-form__input[type=number] {
+  width: 150px;
 }
 .c-form__button {
   display: inline-block;
@@ -130,8 +149,24 @@ tr.data-row td div {
 }
 
 @media (max-width: 450px) {
+  .c-main {
+    font-size: 1rem;
+  }
+
   .c-main__header {
     font-size: 6rem;
     text-align: center;
+  }
+
+  .c-form__input[type=number] {
+    width: 125px;
+  }
+
+  td {
+    font-size: 1rem;
+  }
+
+  tr.data-row td div {
+  font-size: 1.75rem;
   }
 }
